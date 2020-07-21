@@ -1,0 +1,17 @@
+#main{
+    background: lightblue;
+    text-align: center;
+    border: 5px red;
+    border-radius: 15px;
+    overflow: visible;
+    padding: 50px;
+    width: 900px;
+    margin:auto;
+}
+
+#textarea{
+    border: hidden;
+    height: 511px;
+    width: 791px;
+    resize: none;
+}
