@@ -1,6 +1,7 @@
-$(document).ready(function{
+$(document).ready(function(){
 
-    //JQuery methods go here
-    ;
+    $("#startbutton").click(function(){
+        text = $("textarea").val();
+    });
 
-})
+});
