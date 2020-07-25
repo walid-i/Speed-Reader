@@ -16,7 +16,19 @@
     resize: none;
 }
 
+#startbutton{
+    float: none;
+    margin-right: 200px;
+}
+
+#wordDisplay{
+    background: whitesmoke;
+    padding: 50px;
+    font-size: 50pt;
+}
+
 .button{
     padding: 10px;
     border: hidden;
+    margin: 15px;
 }
