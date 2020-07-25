@@ -1,7 +1,19 @@
 // Function to split string into array of words
-var wordArray;
+var wordArray, speed = 1000;
 function splitWords(text){
     wordArray = text.split(" ");
+}
+
+function showWords(){
+    var i = 0;
+    var interval = setInterval(function(){
+    if(i > wordArray.length - 2){
+        clearInterval(interval);
+    }
+    document.getElementById("wordDisplay2").innerHTML = wordArray[i];
+    console.log(wordArray[i]);
+    i++;
+    }, speed);
 }
 
 $(document).ready(function(){
@@ -11,10 +23,7 @@ $(document).ready(function(){
         $("#wordDisplay").show();
         splitWords(text);
         console.log(wordArray);
-        for(var i = 0; i < wordArray.length; i++){
-            console.log(wordArray[i]);
-            document.getElementById("wordDisplay2").innerHTML = wordArray[i];
-        }
+        showWords();
     });
 
 });
