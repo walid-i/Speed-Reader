@@ -3,6 +3,8 @@ var wordArray, speed = 1000;
 function splitWords(){
     var text = $("textarea").val();
     wordArray = text.split(" ");
+    console.log(wordArray.length);
+    $("#wordCount2").text(wordArray.length + " words");
 }
 
 function showWords(){
@@ -22,7 +24,10 @@ function showWords(){
 $(document).ready(function(){
 
     splitWords();
-    $("#wordCount").prepend(wordArray.length);
+    $("#textarea").on('change keyup paste', function(){
+        splitWords();
+    });
+    
 
     $("#startbutton").click(function(){
         $(".initialScreen, #startbutton").fadeOut("3000");

@@ -1,6 +1,6 @@
 #main{
     background: lightblue;
-    text-align: center;
+    /* text-align: center; */
     border: 5px red;
     border-radius: 15px;
     overflow: visible;
@@ -16,22 +16,20 @@
     resize: none;
 }
 
-#startbutton{
-    vertical-align: middle;
-    margin: 20px;
-    position: relative;
-}
-
 #wordDisplay{
     background: whitesmoke;
     padding: 50px;
     font-size: 50pt;
 }
 
-.button{
+.buttons{
+    display:flex;
+    justify-content: center;
+    align-items: center;
     padding: 10px;
     border: hidden;
-    margin: 15px;
+    margin: 10px;
+    border-radius: 15px;
 }
 
 .secondScreen{
