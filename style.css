@@ -17,8 +17,9 @@
 }
 
 #startbutton{
-    float: none;
-    margin-right: 200px;
+    vertical-align: middle;
+    margin: 20px;
+    position: relative;
 }
 
 #wordDisplay{
@@ -31,4 +32,9 @@
     padding: 10px;
     border: hidden;
     margin: 15px;
+}
+
+.secondScreen{
+    display: none;
+    padding: 10px;
 }
