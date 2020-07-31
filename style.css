@@ -1,6 +1,9 @@
 #main{
     background: lightblue;
-    /* text-align: center; */
+    text-align: center;
+    display:flex;
+    flex-flow: column nowrap;
+    justify-content: center;
     border: 5px red;
     border-radius: 15px;
     overflow: visible;
@@ -14,6 +17,7 @@
     height: 511px;
     width: 791px;
     resize: none;
+    margin: 20px;
 }
 
 #wordDisplay{
