@@ -15,6 +15,10 @@
                 <p id="wordDisplay2"></p>
             </div>
 
+            <div class="secondScreen">
+                <input type="range" min="0" max="50" value="0" id="slider">
+            </div>
+
             <div style = "margin:10px;">
                 <p style="float: left;">WPM</p>
                 <p style="float: left;"><span><input id = "WPMinput" style="float:left; margin-left: 10px;" type="number" value="100"></span></p>
@@ -22,8 +26,10 @@
                 <br>
             </div>
             
-            <div class = "buttons">
-                <button id="startbutton" class="buttons">Click to start reading</button>
+            <div>
+                <button id="backbutton" class="buttons secondScreen">BACK</button>
+                <button id="startbutton" class="buttons">START</button>
+                <button id="startoverbutton" class="buttons secondScreen">STARTOVER</button>
             </div>
             
         </div>  
