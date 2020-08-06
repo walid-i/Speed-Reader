@@ -1,24 +1,30 @@
 // Function to split string into array of words
 var wordArray, index = 0, speed = 1000;
-var toggleFlash = false, startClicked = false;
+var toggleFlash = false, startClicked = false, screenSwapped = false;
 
 function splitWords(){
     var text = $("textarea").val();
     wordArray = text.split(" ");
     console.log(wordArray.length);
     $("#wordCount2").text(wordArray.length + " words");
+    document.getElementById("slider").max = wordArray.length - 1;
 }
 
 function showWords(){
     speed = 60000 / $("#WPMinput").val();
     var interval = setInterval(function(){
-        if(index > wordArray.length - 2 || !toggleFlash){
+        if(index > wordArray.length - 2 || !toggleFlash || !startClicked){
             clearInterval(interval);
+            $("#startbutton").html("START");
+            startClicked = false;
+            
         }
+        document.getElementById("slider").value = index;
+        console.log("index before incrementing: " + index);
         document.getElementById("wordDisplay2").innerHTML = wordArray[index];
         console.log(wordArray[index]);
         index++;
-        speed = 60000 / $("#WPMinput").val(); // in case user changes speed
+        console.log("index: " + index + " toggleflash: " + toggleFlash);
     }, speed);
 }
 
@@ -47,6 +53,13 @@ function changeScreens(x){
 $(document).ready(function(){
 
     splitWords();
+    var slider = document.getElementById("slider");
+    slider.oninput = function(){
+        index = this.value;
+        document.getElementById("wordDisplay2").innerHTML = wordArray[index];
+        $("#startbutton").html("START");
+        toggleFlash = false;
+    }
     
     $("#textarea").on('change keyup paste', function(){
         splitWords();
@@ -56,9 +69,22 @@ $(document).ready(function(){
     $("#startbutton").click(function(){
         startClicked = !startClicked; //toggle
         if(startClicked){
-            changeScreens(true);
-            splitWords();    
-            console.log(wordArray);
+
+            toggleFlash = true;
+            if(!screenSwapped){
+                index = 0;
+                document.getElementById("slider").value = index;
+                changeScreens(true);
+                screenSwapped = true;
+                splitWords();    
+                console.log(wordArray);
+            }
+            
+            if(index > wordArray.length - 2){
+                index = 0;
+                document.getElementById("slider").value = index;
+            }
+
             showWords();
             $("#startbutton").html("PAUSE");
         }
@@ -72,9 +98,9 @@ $(document).ready(function(){
 
     $("#backbutton").click(function(){
         changeScreens(false);
-        index = 0;
         $("#startbutton").html("START");
         startClicked = false;
+        screenSwapped = false;
     })
 
     $("#startoverbutton").click(function(){
@@ -85,6 +111,10 @@ $(document).ready(function(){
         else{
             index = 0;
             showWords();
+        }
+        document.getElementById("slider").value = index;
+        if(!startClicked){
+            document.getElementById("wordDisplay2").innerHTML = wordArray[0];
         }
     })
 
